@@ -20,8 +20,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useState } from "react";
-
-export const Carrossel = () => {
+const Carrossel = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div>
@@ -94,3 +93,5 @@ export const Carrossel = () => {
     </div>
   );
 };
+
+export default Carrossel;

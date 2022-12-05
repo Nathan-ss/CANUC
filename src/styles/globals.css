@@ -13,6 +13,17 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.swiper-pagination-bullet-active {
+  background-color: #f9f9f9 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  right: 10px;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -22,11 +33,11 @@ a {
   box-sizing: border-box;
 }
 h1 {
-  font-size: 8rem;
+  font-size: 5rem;
   font-weight: bold;
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: lighter;
 }
 

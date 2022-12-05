@@ -1,4 +1,4 @@
-.container h1 {
+.carrossel h1 {
   font-size: 6em;
   font-weight: bold;
   text-align: center;
@@ -11,6 +11,26 @@
   /* a cor do texto deve estar como transparent */
   color: transparent;
 }
-.container h2 {
+.carrossel h2 {
   color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .carrossel h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    /* fundo gradiente */
+    background-image: linear-gradient(#e5c200, rgb(220, 187, 1));
+    /* agora colocamos o fundo gradiente dentro do texto com essa propriedade */
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* a cor do texto deve estar como transparent */
+    color: transparent;
+  }
+  .carrossel h2 {
+    font-size: 0.5em;
+    color: white;
+  }
 }

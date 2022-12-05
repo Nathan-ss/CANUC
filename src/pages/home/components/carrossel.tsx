@@ -19,30 +19,22 @@ const Carrossel = () => {
         navigation
         spaceBetween={0}
         slidesPerView={1}
-        pagination={{ clickable: true }}
+        loop={true}
+        pagination={{ clickable: true, dynamicBullets: true }}
         scrollbar={{ draggable: true }}
       >
         <SwiperSlide>
           <div
-            className="flex justify-center w-full "
+            className="flex justify-center w-full  "
             style={{ height: "38rem" }}
           >
-            <div className="flex flex-col absolute justify-end w-full items-center  h-4/5 text-center z-10">
+            <div className="flex flex-col absolute justify-end w-full items-center  h-4/5  text-center z-10">
               <h1>A melhor do Brasil</h1>
               <h2>
                 Garanta logo a sua e fique estiloso para torcer para o Brasil em
                 todos os jogos
               </h2>
-              <button
-                style={{
-                  background: "#e6c200",
-                  padding: "1rem",
-                  borderRadius: "0.5rem",
-                  margin: "1%",
-                  paddingLeft: "4rem",
-                  paddingRight: "4rem",
-                }}
-              >
+              <button className="p-4 px-12 bg-yellow-500 hover:bg-yellow-600 mt-3 rounded-md">
                 Compre Agora
               </button>
             </div>
@@ -61,6 +53,20 @@ const Carrossel = () => {
             className="flex justify-center w-full "
             style={{ height: "38rem" }}
           >
+            <div className="flex flex-col absolute justify-end w-full items-center  h-4/5 text-center z-10">
+              <h1>A melhor do Mundo</h1>
+              <h2>
+                Garanta logo a sua e fique estiloso para torcer para o seu time
+                Favorito em todos os jogos da copa
+              </h2>
+              <button className="p-4 px-12 bg-yellow-500 hover:bg-yellow-600 mt-3 rounded-md">
+                Compre Agora
+              </button>
+            </div>
+            <div
+              className="absolute z-8 w-full h-full opacity-75"
+              style={{ background: "black" }}
+            ></div>
             <img
               src="/images/Emirates.webp"
               className="object-cover w-full h-full"
@@ -72,6 +78,20 @@ const Carrossel = () => {
             className="flex justify-center w-full "
             style={{ height: "38rem" }}
           >
+            <div className="flex flex-col absolute justify-end w-full items-center  h-4/5 text-center z-10">
+              <h1>A melhor do Mundo</h1>
+              <h2>
+                Garanta logo a sua e fique estiloso para torcer para o seu time
+                Favorito em todos os jogos da copa
+              </h2>
+              <button className="p-4 px-12 bg-yellow-500 hover:bg-yellow-600 mt-3 rounded-md">
+                Compre Agora
+              </button>
+            </div>
+            <div
+              className="absolute z-8 w-full h-full opacity-75"
+              style={{ background: "black" }}
+            ></div>
             <img
               src="/images/france.jpg"
               className="object-cover w-full h-full"

@@ -6,15 +6,16 @@ import styles from "./styles/Home.module.css";
 
 const Home = () => {
   return (
-    <div className={styles.container}>
-      <BasicLayout>
+    <BasicLayout>
+      <div className={styles.carrossel}>
         <Carrossel />
         <br />
-        <div className="flex">
-          <Products />
-        </div>
-      </BasicLayout>
-    </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <h1>Products</h1>
+        <Products />
+      </div>
+    </BasicLayout>
   );
 };
 

@@ -1,18 +1,7 @@
 // import Swiper core and required modules
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  FreeMode,
-  Mousewheel,
-  Thumbs,
-} from "swiper";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";

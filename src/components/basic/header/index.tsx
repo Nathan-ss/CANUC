@@ -1,8 +1,13 @@
 import { Box, Button, Drawer } from "@mui/material";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { Cart } from "../../Cart";
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
+  const { pathname } = useRouter();
+
+  const showCartButton = pathname !== "/success";
   function close() {
     setOpen(false);
   }
@@ -86,6 +91,7 @@ export default function Header() {
               link
             </a>
           </li>
+          <li>{showCartButton && <Cart />}</li>
         </ul>
       </div>
     </nav>

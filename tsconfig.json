@@ -13,8 +13,28 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": ["./src/controllers/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@models/*": ["./src/models/*"],
+      "@config/*": ["./src/config/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/hooks/use-shopping-cart.ts",
+    "src/components/products/Rating.tsx",
+    "src/hooks/use-shopping-cart.js",
+    "src/pages/api/webhook/index.js",
+    "src/pages/api/checkout_sessions/[id].js",
+    "src/pages/cart/index.js"
+  ],
   "exclude": ["node_modules"]
 }

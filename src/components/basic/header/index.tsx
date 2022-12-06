@@ -1,8 +1,13 @@
 import { Box, Button, Drawer } from "@mui/material";
 import { useState } from "react";
+import { useShoppingCart } from "@/hooks/use-shopping-cart";
+import Link from "next/link";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
+import { formatCurrency } from "@/lib/utils";
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
+  const { totalPrice, cartCount } = useShoppingCart();
   function close() {
     setOpen(false);
   }
@@ -31,7 +36,19 @@ export default function Header() {
           </div>
         </a>
       </div>
-
+      <div className="block lg:hidden">
+        <Link href="/cart">
+          <div className="block">
+            <div className="relative">
+              <ShoppingCartIcon className="w-7 h-7 flex-shrink-0" />
+            </div>
+            <p className="text-lg">
+              {formatCurrency(totalPrice)}{" "}
+              <span className="text-sm text-gray-500">({cartCount})</span>
+            </p>
+          </div>
+        </Link>
+      </div>
       <div className="block lg:hidden">
         <Button
           id="nav-toggle"
@@ -67,7 +84,7 @@ export default function Header() {
               className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
             >
-              link
+              Masculino
             </a>
           </li>
           <li className="mr-3">
@@ -75,7 +92,7 @@ export default function Header() {
               className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
             >
-              link
+              Feminino
             </a>
           </li>
           <li className="mr-3">
@@ -83,8 +100,21 @@ export default function Header() {
               className="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
               href="#"
             >
-              link
+              Time
             </a>
+          </li>
+          <li>
+            <Link href="/cart">
+              <div className="flex">
+                <div className="relative">
+                  <ShoppingCartIcon className="w-7 h-7 flex-shrink-0" />
+                </div>
+                <p className="text-lg">
+                  {formatCurrency(totalPrice)}{" "}
+                  <span className="text-sm text-gray-500">({cartCount})</span>
+                </p>
+              </div>
+            </Link>
           </li>
         </ul>
       </div>

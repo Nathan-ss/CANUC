@@ -37,7 +37,8 @@ export default function Header() {
         </a>
       </div>
 
-      <div className="block lg:hidden">
+      <div className="flex w-1/4 lg:hidden">
+        {showCartButton && <Cart />}
         <Button
           id="nav-toggle"
           onClick={() => setOpen(true)}

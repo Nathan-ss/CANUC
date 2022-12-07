@@ -1,13 +1,21 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { styled } from "../../styles";
 
-export const CartContent = styled(Dialog.Content, {
+const isMobile =
+  typeof window !== "undefined"
+    ? window.screen.width > 600
+      ? true
+      : false
+    : true;
+
+const cartContentdesktop = styled(Dialog.Content, {
   position: "fixed",
+  zIndex: 10,
   top: 0,
-  right: 0,
+
   bottom: 0,
   width: "30rem",
-  background: "$gray800",
+  background: "$white",
   padding: "3rem",
   paddingTop: "4.5rem",
   boxShadow: "-4px 0px 30px rgba(0, 0, 0, 0.8)",
@@ -17,7 +25,7 @@ export const CartContent = styled(Dialog.Content, {
   h2: {
     fontWeight: 700,
     fontSize: "$lg",
-    color: "$gray100",
+    color: "$gray500",
     marginBottom: "2rem",
   },
 
@@ -29,6 +37,38 @@ export const CartContent = styled(Dialog.Content, {
     overflowY: "auto",
   },
 });
+
+const cartContentmobile = styled(Dialog.Content, {
+  position: "fixed",
+  zIndex: 10,
+  top: 0,
+
+  bottom: 0,
+  width: "full",
+  background: "$white",
+  padding: "3rem",
+  paddingTop: "4.5rem",
+  boxShadow: "-4px 0px 30px rgba(0, 0, 0, 0.8)",
+  display: "flex",
+  flexDirection: "column",
+
+  h2: {
+    fontWeight: 700,
+    fontSize: "$lg",
+    color: "$gray500",
+    marginBottom: "2rem",
+  },
+
+  "> section": {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1.5rem",
+    flex: 1,
+    overflowY: "auto",
+  },
+});
+
+export const CartContent = isMobile ? cartContentmobile : cartContentdesktop;
 
 export const CartClose = styled(Dialog.Close, {
   background: "none",
@@ -104,7 +144,7 @@ export const CartFinalization = styled("div", {
     fontWeight: 700,
 
     "&:disabled": {
-      opacity: 0.6,
+      opacity: 10,
       cursor: "not-allowed",
     },
 

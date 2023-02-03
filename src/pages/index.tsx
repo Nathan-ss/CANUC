@@ -4,8 +4,10 @@ import "keen-slider/keen-slider.min.css";
 
 import styles from "../styles/Home.module.css";
 import Entry from "../components/home/Entry";
-import BasicLayout from "../components/basic";
+import BasicLayout from "../components/misc";
 import Products from "../components/products/products";
+import { ListTeam } from "../components/home/ListTeam";
+import { Base } from "../components/home/Base";
 
 export default function Home() {
   return (
@@ -17,11 +19,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout>
-        <div className={styles.carrossel}>
-          <Entry />
-        </div>
-        <div className="flex flex-col items-center">
+        <Entry />
+
+        <div className="flex flex-col">
+          <ListTeam />
           <Products />
+          <Base />
         </div>
       </BasicLayout>
     </div>

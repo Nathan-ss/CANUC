@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 // import required modules
 import { Pagination, Navigation, Scrollbar } from "swiper";
+import { useEffect, useState } from "react";
 
 const products = [
   {
@@ -45,32 +46,35 @@ const products = [
     price: "$35",
     color: "Black",
   },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
   // More products...
 ];
+
 const Products = () => {
+  const [ismobile, setIsMobile] = useState<boolean>(false);
+  useEffect(() => {
+    setMobile();
+  });
+  const setMobile = () => {
+    if (window.screen.width <= 540) {
+      setIsMobile(true);
+      return true;
+    }
+    return false;
+  };
   return (
     <div>
-      <div className="bg-slate-700 ">
+      <div className="bg-blue-500 ">
         <div className="flex justify-center pt-24">
           <h2 className="text-4xl font-bold tracking-tight text-white ">Produtos</h2>
         </div>
 
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24  lg:max-w-7xl ">
           <div>
             <Swiper
               className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
-              slidesPerView={3}
+              slidesPerView={ismobile ? 1 : 3}
               spaceBetween={100}
-              slidesPerGroup={3}
+              slidesPerGroup={products.length % 2 == 0 ? 2 : 3}
               loop={true}
               loopFillGroupWithBlank={true}
               pagination={{
@@ -103,7 +107,7 @@ const Products = () => {
                             <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                <path stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                               </svg>
                             </span>
                             <span className="flex gap-2 relative ">
@@ -130,3 +134,18 @@ const Products = () => {
 };
 
 export default Products;
+function detectar_mobile() {
+  if (
+    navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}

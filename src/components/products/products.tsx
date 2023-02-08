@@ -8,52 +8,12 @@ import "swiper/css/scrollbar";
 // import required modules
 import { Pagination, Navigation, Scrollbar } from "swiper";
 import { useEffect, useState } from "react";
+import { getClothing } from "../../services/getClothes";
+import { productSummary } from "../../types";
 
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  // More products...
-];
-
-const Products = () => {
+function Products({ products }: { products: productSummary[] }) {
   const [ismobile, setIsMobile] = useState<boolean>(false);
-  useEffect(() => {
-    setMobile();
-  });
+
   const setMobile = () => {
     if (window.screen.width <= 540) {
       setIsMobile(true);
@@ -87,18 +47,21 @@ const Products = () => {
             >
               {products.map((product) => (
                 <SwiperSlide>
-                  <p className="text-xl font-bold tracking-tight text-white ">{product.name}</p>
-                  <div key={product.id} className="group relative">
+                  <div key={product._id} className="group relative">
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                      <img src={product.imageSrc} alt={product.imageAlt} className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+                      <img src={product.ImageUrl} alt={"produto"} className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                     </div>
                     <div className=" flex justify-center pt-5">
                       <div>
                         <h3 className="text-sm text-gray-700">
-                          <a href={product.href}>
+                          <a href={"#"}>
                             <span aria-hidden="true" className="absolute inset-0" />
                           </a>
                         </h3>
+                        <div className="w-full back">
+                          <p className="text-xl font-bold tracking-tight text-white ">{product.Name}</p>
+                          <h2 className="text-sm text-white">R${product.Price}</h2>
+                        </div>
                         <div className="flex justify-center pt-5">
                           <a
                             href="#_"
@@ -107,7 +70,7 @@ const Products = () => {
                             <span className="absolute left-0 block w-full h-0 transition-all bg-white opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                             <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                <path stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                               </svg>
                             </span>
                             <span className="flex gap-2 relative ">
@@ -131,7 +94,7 @@ const Products = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Products;
 function detectar_mobile() {

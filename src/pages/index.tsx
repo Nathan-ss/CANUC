@@ -8,8 +8,16 @@ import BasicLayout from "../components/misc";
 import Products from "../components/products/products";
 import { ListTeam } from "../components/home/ListTeam";
 import { Base } from "../components/home/Base";
+import { getClothing } from "../services/getClothes";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useProductsQuery } from "../store";
 
 export default function Home() {
+  //const [prod, setProd] = useState();
+  const { queryProducts } = useProductsQuery();
+  const { data: products } = queryProducts;
+
   return (
     <div>
       <Head>
@@ -23,10 +31,13 @@ export default function Home() {
 
         <div className="flex flex-col">
           <ListTeam />
-          <Products />
+          <Products products={products.data} />
           <Base />
         </div>
       </BasicLayout>
     </div>
   );
+}
+function queryProducts(): { data: any } {
+  throw new Error("Function not implemented.");
 }

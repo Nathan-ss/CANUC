@@ -28,7 +28,7 @@ export default function AddProductsForm() {
   const onSubmit = (data) => {
     console.log(data);
 
-    //addClothing(data);
+    addClothing(data);
   };
 
   const [currency, setCurrency] = useState<string>();

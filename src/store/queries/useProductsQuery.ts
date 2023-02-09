@@ -6,7 +6,7 @@ import { getClothing } from "../../services/getClothes";
 export const useProductsQuery = () => {
   const queryClient = useQueryClient();
 
-  const loadProducts = async () => {
+  const loadProducts = async (): Promise<productSummary[]> => {
     try {
       return getClothing();
     } catch (error) {
@@ -14,7 +14,7 @@ export const useProductsQuery = () => {
     }
   };
 
-  const queryProducts = useQuery({
+  const queryProducts = useQuery<productSummary[]>({
     queryKey: ["product"],
     queryFn: loadProducts,
     staleTime: 1000 * 60,

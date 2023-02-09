@@ -12,11 +12,13 @@ import { getClothing } from "../services/getClothes";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useProductsQuery } from "../store";
+import { productSummary } from "../types";
 
 export default function Home() {
   //const [prod, setProd] = useState();
   const { queryProducts } = useProductsQuery();
-  const { data: products } = queryProducts;
+  const { data: products, isFetching } = queryProducts;
+  console.log(products);
 
   return (
     <div>
@@ -31,13 +33,11 @@ export default function Home() {
 
         <div className="flex flex-col">
           <ListTeam />
-          <Products products={products.data} />
+          {isFetching ? "" : <Products products={products} />}
+
           <Base />
         </div>
       </BasicLayout>
     </div>
   );
-}
-function queryProducts(): { data: any } {
-  throw new Error("Function not implemented.");
 }
